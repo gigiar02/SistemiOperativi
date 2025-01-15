@@ -1,0 +1,39 @@
+Traccia "Fila in un negozio" 10/01/2025
+
+In un negozio Foot Locker, c'è una guardia che si occupa di far entrare un numero predefinito di persone alla volta(ad esempio: 1,2,N). 
+Quando le persone escono, la guardia ripete il ciclo.
+ Inoltre, ci sono potenziali clienti che attendono il loro turno per entrare nel negozio, fare acquisti e poi uscire, segnalando la loro uscita.
+
+Dati:
+//Utilizzato dalla persona per segnalare il fatto che è arrivato e si è messo in fila
+fila : semaforo = 0
+//Tiene conto dei posti_disponibili nel negozio
+posti_disponibili : semaforo = N
+//Utilizzato dalla guardia per far entrare una persona
+entra : semaforo = 0
+
+
+
+Guardia:
+//Aspetta che si formi la fila
+wait(fila)
+//Aspetta che ci siano posti all'interno del negozio
+wait(posti_disponibili)
+//Segnala alla persona che può entrare
+signal(entra)
+repeat-forever
+
+Persona:
+//Segnala la sua entrata
+signal(fila)
+//Aspetta di poter entrare
+wait(entra)
+{Fai compere}
+//Segnala la tua uscita
+signal(posti_disponibili)
+repeat-forever
+
+
+
+
+
