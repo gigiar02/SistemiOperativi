@@ -15,3 +15,16 @@
 //PATH = "Lezione_6/file.c"
 int OurSquareRoot(int n);
 
+
+//PATH = "Lezione_6/InfoFile.c"
+
+//Stampa informazioni (tipologia) sui file passati in input attraverso percorso e il numero di file passati
+//Si suppone che il primo elemento dell'array valido sia in posizione 1.
+void StampaInfoFile(int num,char *percorsi[]);
+
+/*
+Effettua il test di accessibilità di un file per verificare in base a mode se:
+Il file esiste con mode = F_OK
+oppure con R_OK, W_OK e X_OK per le modalità d' accesso
+*/
+int VerifyAccess(const char* pathName,int mode);
