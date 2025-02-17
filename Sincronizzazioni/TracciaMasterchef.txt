@@ -1,3 +1,4 @@
+Prova
 Traccia Masterchef
 E' in atto la selezione degli aspiranti della 12a edizione di MasterChef Italia. Nel grande salone di attesa possono prendere posto al piu' N aspiranti cuochi, mentre i restanti prenderanno parte alla sessione di prova di cucina successiva. Le sessioni previste sono M. Ogni aspirante cuoco che ha trovato posto sara' chiamato nella sala cucina dai tre Chef stellati.
 Nel salone di attesa sono disponibili Z(<N) tavoli da cucina portatili per esercitarsi durante l'attesa, e che ciascun cuoco portera' con se nella sala cucina durante la propria prova. I tavoli per le esercitazioni sono distribuiti concorrentemente ai piu' veloci ad accaparrarseli.
