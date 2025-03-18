@@ -1,0 +1,1 @@
+Servono per rappresentare dispositivi che sono formati da flussi di caratteri.
