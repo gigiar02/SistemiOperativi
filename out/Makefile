@@ -1,7 +1,7 @@
 #make file per prog
 #versione 1
 
-OGGETTI = ../main.o ../Lezione_6/file.o ../Lezione_6/InfoFile.o
+OGGETTI = ../main.o ../Processi/lib.c
 prog : $(OGGETTI)
 	gcc -o prog $(OGGETTI)
 

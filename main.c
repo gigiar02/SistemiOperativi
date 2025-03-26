@@ -1,10 +1,7 @@
-#include "lib.h"
+
 
 int main(int argc, char *argv[])
 {
-	
-	TrovaLinkSimbolico();
-	
+	printState(argv);
 	return 0;
-		
 }
