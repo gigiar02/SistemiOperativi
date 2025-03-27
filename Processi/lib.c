@@ -6,13 +6,13 @@
 
 
 #include <stdio.h>
-
 //Percorso per arrivare alla cartella apue
 #define apue_path </home/luigi/apue.3e/include/apue.h>
 #include apue_path
 
 
 void printFatherChild();
+
 
 //crea un processo  figlio. Il padre stampa "Sono il padre" con il suo pid  e il figlio "sono il figlio" con il suo pid. Per evitare che il figlio diventi un orfano, il padre prima di terminare deve
 //Aspettare con wait che il figlio abbia finito. Stampare se il figlio è stato terminato in modo normale o anormale.
