@@ -1,0 +1,1 @@
+La soluzione ottima del problema contiene la soluzione ottima dei sottoproblemi
