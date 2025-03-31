@@ -1,12 +1,22 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <limits.h>
-#include <sys/types.h>
 
-#define N 6
+
+
+
+#include <stdio.h>
+#include <limits.h>
+#include <unistd.h>
+#include <string.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <signal.h>
+
+
+#define N 100
 
 
 pid_t  pidList[N];
+int glob = 0;
 
 void esercizio(int arg)
 {
@@ -31,6 +41,8 @@ void esercizio(int arg)
 	
 	}
 	
+	printf("pari: %d disp: %d  \n",pari,disp);
+	
 	
 	//Generazione figli
 	for(int i = 0; i < N; i++)
@@ -42,32 +54,47 @@ void esercizio(int arg)
 		
 		}else
 		{
+			glob++;
+			printf("glob: %d \n",glob);
 			id = i;
 			pidList[id] = getpid();
-			break;
+			printf("sono id = %d pid = %d \n",id,pidList[id]);
+			
+			if(id -1 < 0) return;
+			if(id - N/2 < 0) return;
+			
+			if(pari > disp)
+			{
+				if(id % 2 == 0)
+				{
+					
+					printf("[+] Id = %d invio sengale: SIGUSR1 a %d \n",id,getpid()-1);
+					kill(pidList[id-1],SIGUSR1);
+					
+				}
+			}else
+			{
+				//ogni processo i > N/2 Manda un segnale SIGUSR2 al processo con identificatore i-N/2
+				if(id > N/2)
+				{
+					printf("[+] Id = %d invio sengale: SIGUSR2 a %d \n",id,getpid() -N/2);
+					kill(pidList[id-N/2],SIGUSR2);
+				}
+			}
+			
+			return;
 		}
 	
 	}
+	
+	//barriera
+	
 	
 	//Eseguono i filgi
 	if(id != -1)
 	{
 	
-		//Se l'id è pari manda un segnale SIGUSR1 ai processi con j = i-1
-		if(pari > disp)
-		{
-			if(id % 2 == 0)
-			{
-				kill(pidList[id-1],SIGUSR1);
-			}
-		}else
-		{
-			//ogni processo i > N/2 Manda un segnale SIGUSR2 al processo con identificatore i-N/2
-			if(id > N/2)
-			{
-				kill(pidList[id-N/2],SIGUSR2);
-			}
-		}
+		
 		
 		
 		
@@ -76,10 +103,23 @@ void esercizio(int arg)
 
 }
 
+void handle(int type)
+{
+	if(type == SIGUSR1)
+	{
+		printf("Ricevuto SIGUSR1 \n");
+	}else if(type == SIGUSR2)
+	{
+		printf("Ricevuto SIGUSR2 \n");
+	}
+}
+
 
 int main(int argc, char *argv[])
 {
-
+	
+	signal(SIGUSR1,handle);
+	signal(SIGUSR2,handle);
 	if(argc < 2)
 	{
 		perror("Too few arguments: ");
