@@ -19,7 +19,7 @@ int fileWrite(char *fileName)
 	//Scrittura su file
 	char buffer[BUFF];
 	read(STDIN_FILENO,buffer,BUFF);
-	printf("Ho letto %s \n",buffer);
+	
 	
 	ssize_t written = write(fd,buffer,strlen(buffer));
 	if(written <= 0) return 3;
@@ -28,16 +28,6 @@ int fileWrite(char *fileName)
 	close(fd);
 	return 0;
 	
-
-
-	/*
-	int fd = open(fileName,O_WRONLY);
-	dup2(fd,0);
-	char buffer[BUFF];
-	read(0,buffer,BUFF);
-	close(fd);
-	*/
-	
 }
 
 
@@ -45,35 +35,32 @@ int copiaFile(char *A,char *B)
 {
 	int fd1 = open(A,O_RDONLY);
 	int fd2 = open(B,O_WRONLY | O_TRUNC);
-	char buff[BUFF];
-	char buff2[BUFF];
+	
+	
+	ssize_t pos;
+	ssize_t letti;
 	
 	if(fd1 < 0 || fd2 < 0) return 2;
 	
 	//Ricavo il size
-	int size = lseek(fd1,0,SEEK_END);
+	ssize_t size = lseek(fd1,0,SEEK_END);
 	size_t half = size/2;
+	char buff[half];
+	char buff2[half];
 	
-	printf("size = %d \n",size);
-	read(fd1,buff2,half);
+	printf("size = %ld \n",size);
 	
-	
-	//Mi posiziono all'inizio e successivamente a metà
-	int pos = lseek(fd1,size/2,SEEK_SET);
-	printf("Current position = %d \n",pos);
-	
-	
-	//Lettura seconda parte del file
-	size_t byte = 2;
-	ssize_t rd = read(fd1,buff,half);
-	if(rd < 0) return 3;
-	
-	//Lettura prima parte del file
+	//mi posiziono all'inizio del file e leggo size/2 byte, ossia la prima parte
 	pos = lseek(fd1,0,SEEK_SET);
-	printf("pos = %d \n",pos);
+	letti = read(fd1,buff2,half);
+	printf("[+] Lettura prima metà = %s Letti: %ld \n",buff2,letti);
+	
+	//Leggo l'altra metà
+	letti = read(fd1,buff,half);
+	if(letti < 0) return 3;
+	printf("[+] Lettura seconda metà = %s Letti: %ld \n",buff,letti);
 	
 	
-	printf("Prima parte: %s  letti: %ld \n",buff2,rd);
 	
 	//Scrittura sul secondo file
 	ssize_t written = write(fd2,buff,strlen(buff));
@@ -97,6 +84,7 @@ int main(int argc,char *argv[])
 	
 	
 	int res = fileWrite("output.txt");
+	char buff[BUFF];
 	
 	//Gestione errori
 	if(res == 2) { perror("Errore nell' apertura del file: "); return -1; }
@@ -105,6 +93,17 @@ int main(int argc,char *argv[])
 	
 	//Copia del file in un secondo file
 	res = copiaFile("output.txt","output2.txt");
+	if(res != 0) return -1;
+	
+	//Apri il file da cui leggere
+	int fd = open("output2.txt",O_RDONLY);
+	read(fd,buff,BUFF);
+	
+	//Scrivi su terminale il risultato
+	printf("Risultato finale: \n");
+	write(STDOUT_FILENO,buff,strlen(buff));
+	
+
 	
 	
 }
