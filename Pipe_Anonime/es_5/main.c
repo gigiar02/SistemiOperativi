@@ -75,12 +75,14 @@ int main() {
     
     }
     
+    
     close(fd1[1]);
     close(fd1[0]);
     close(fd2[0]);
     close(fd2[1]);
     
-    for (int i = 0; i < 1; i++) 
+    
+    for (int i = 0; i < 2; i++) 
     {
     	
     		wait(NULL);
@@ -88,7 +90,7 @@ int main() {
     
     
     
-    return 0;
+    
 
     
 }
