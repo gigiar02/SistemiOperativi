@@ -1,2 +1,1 @@
-Un problema gode di sottostruttura ottima se la soluzione ottima del problema contiene la soluzione ottima dei sottoproblemi.
-
+ciao mondo ciao cia owi
