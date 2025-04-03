@@ -1,1 +1,0 @@
-Identifica il gruppo che ha eseguito il processo

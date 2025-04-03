@@ -8,43 +8,45 @@
         "type": "tabs",
         "children": [
           {
-            "id": "534d7542f35545e8",
+            "id": "c5697aee2b919ba4",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "File I-O.md",
-                "mode": "preview",
-                "source": false
-              },
-              "icon": "lucide-file",
-              "title": "File I-O"
-            }
-          },
-          {
-            "id": "a3b833cbf32bd74e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Domande teoriche.md",
+                "file": "Processo/wait.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Domande teoriche"
+              "title": "wait"
             }
           },
           {
-            "id": "ae8bc17a7cd7e513",
+            "id": "b2c4fe0316b3c519",
             "type": "leaf",
             "state": {
-              "type": "release-notes",
+              "type": "markdown",
               "state": {
-                "currentVersion": "1.8.9"
+                "file": "I-O/lseek.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-book-up",
-              "title": "Release Notes 1.8.9"
+              "icon": "lucide-file",
+              "title": "lseek"
+            }
+          },
+          {
+            "id": "d67d2d5a828990b1",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Shell/Analisi riga di comando.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Analisi riga di comando"
             }
           }
         ],
@@ -67,7 +69,7 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical",
+                "sortOrder": "byCreatedTime",
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
@@ -105,7 +107,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "2a3d6c1c294b482a",
@@ -190,44 +192,51 @@
       "command-palette:Apri riquadro comandi": false
     }
   },
-  "active": "ae8bc17a7cd7e513",
+  "active": "d67d2d5a828990b1",
   "lastOpenFiles": [
-    "File I-O.md",
-    "Domande teoriche.md",
-    "chdir.md",
-    "Pasted image 20250305165359.png",
-    "Pasted image 20250305165348.png",
-    "Pasted image 20250305165335.png",
-    "Pasted image 20250305165316.png",
-    "Pasted image 20250305165240.png",
-    "Pasted image 20250305164958.png",
-    "opendir.md",
-    "Pasted image 20250305164933.png",
-    "Pasted image 20250305164921.png",
-    "mkdir.md",
-    "Pasted image 20250305164623.png",
-    "symlink.md",
-    "Pasted image 20250305164427.png",
-    "unlink.md",
-    "link.md",
-    "stat.md",
+    "Shell/shell.md",
     "README.md",
-    "File System.md",
-    "I-node.md",
-    "truncate.md",
-    "struct stat.md",
-    "chown.md",
-    "chmod.md",
-    "umask.md",
-    "access.md",
-    "sticky bit.md",
-    "real group id.md",
-    "Real User ID.md",
-    "socket.md",
-    "link simbolici.md",
-    "FIFO.md",
-    "file speciali a caratteri.md",
-    "file speciali a blocco.md",
+    "pipe con nome.md",
+    "Segnale/SIGINT.md",
+    "Segnale/sigaction().md",
+    "Segnale/pgid.md",
+    "Segnale/SIGTTIN.md",
+    "Segnale/SIGTOP.md",
+    "Segnale/pipe anonime.md",
+    "Segnale/IPC.md",
+    "Segnale/pipe().md",
+    "Segnale/SIGPIPE.md",
+    "Processo/Immagine del processo.md",
+    "Segnale/Famiglia Exec.md",
+    "Segnale/execve.md",
+    "Segnale/segnale.md",
+    "Thread/Thread.md",
+    "Pasted image 20250402120723.png",
+    "Pasted image 20250402120715.png",
+    "Pasted image 20250402120709.png",
+    "Pasted image 20250402120701.png",
+    "Pasted image 20250402120652.png",
+    "Pasted image 20250402120642.png",
+    "Pasted image 20250402120633.png",
+    "Pasted image 20250402120554.png",
+    "Pasted image 20250402120543.png",
+    "Pasted image 20250402120533.png",
+    "Thread e Segnali.md",
+    "pthread_kill.md",
+    "Thread/pthread_create.md",
+    "Thread/attributi del thread.md",
+    "Thread/pthread_attr_init.md",
+    "Thread/Pthread.md",
+    "Thread/Terminazione di thread.md",
+    "Thread/pthread_detach.md",
+    "Thread/pthread_join.md",
+    "Thread",
+    "Segnale",
+    "Processo",
+    "FileSystem",
+    "I-O",
+    "Shell",
+    "img",
     "File I"
   ]
 }

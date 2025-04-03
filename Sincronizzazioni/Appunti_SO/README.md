@@ -5,4 +5,11 @@ Indice:
 - [[shell]]
 - [[File I-O]]
 - [[File System]]
+- [[processo]]
+- [[segnale]]
+- [[pipe anonime]]
+- [[pipe con nome]]
+- socket (non ancora fatto)
+- [[Thread]]
+- 
 

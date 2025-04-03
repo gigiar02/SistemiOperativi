@@ -1,1 +1,0 @@
-Identifica l'utente che ha eseguito il processo
