@@ -45,7 +45,11 @@ int conta()
     printf("parola: %s \n",token);
     if(strncmp(token,"oggi",4) == 0)   strcat(buff,"DOMANI");
     if(strncmp(token,"oggi\n",6) == 0) strcat(buff,"DOMANI\n");
-    if(strncmp(token,"oggi",4) != 0 && strncmp(token,"oggi\n",6) != 0) strcat(buff,token);
+    if(strncmp(token,"oggi",4) != 0 && strncmp(token,"oggi\n",6) != 0)
+    {
+      
+      strcat(buff,token);
+    }
     strcat(buff," ");
     token = strtok(NULL," ");
   }
