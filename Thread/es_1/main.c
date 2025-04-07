@@ -1,7 +1,8 @@
 /*
   Creato il 07/04/2025 alle ore 16:23
-  Si creino n thread che stampano uno per volta "sono un thread"
+  Si creino n thread che stampano uno per volta "sono un thread".
   Il numero n è fornito in input.
+  La variabile glob viene sommata
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,10 +11,13 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <pthread.h>
+long double glob = 1;
 
-void func(void * ch)
+void func(void * id)
 {
-  printf("sono un thread \n");
+
+  glob += (int) (id+1) * glob;
+  printf("sono thread %d res = %Lf \n",(int) id,glob);
 }
 
 
@@ -22,6 +26,8 @@ int main(int argc, char *argv[])
   int n;
   n = atoi(argv[1]);
   pthread_t threadList[n];
+  
+  
   //Controllo gli argomenti passati
   if(argc < 2)
   {
@@ -37,8 +43,7 @@ int main(int argc, char *argv[])
   for(int i = 0; i < n; i++)
   {
     //Crea i thread
-    int res = pthread_create(&threadList[i],NULL,(void *)func,NULL);
-    printf("res = %d i = %d \n",res,i);
+    int res = pthread_create(&threadList[i],NULL,(void *)func,(void *) i);
   }
   
   //NB: La sleep l ho inserita solo per estetica nelle printf. Il programma ovviamente
