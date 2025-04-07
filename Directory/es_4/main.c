@@ -48,7 +48,7 @@ int conta()
     if(strncmp(token,"oggi",4) != 0 && strncmp(token,"oggi\n",6) != 0)
     {
       
-      strcat(buff,token);
+      strcat();
     }
     strcat(buff," ");
     token = strtok(NULL," ");
