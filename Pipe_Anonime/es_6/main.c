@@ -1,6 +1,7 @@
 /*
   Creato il 07/04/2025 alle ore 13:55
   La traccia è nella directory
+  Stato: Da finire
 */
 #include <stdio.h>
 #include <stdlib.h>

@@ -13,6 +13,8 @@
 #include <string.h>
 #define SIZE 7500
 char *buff;
+
+
 //Si verifica se l'utente digita ctrl + z
 void interruptHandler()
 {
@@ -30,6 +32,7 @@ void interruptHandler()
   }
   printf("Il fattoriale di %d è %d \n",num,result);
 }
+
 
 //Gestisce il segnale usr1
 void usr1Handler()
@@ -54,6 +57,7 @@ void usr1Handler()
   close(fd);
 }
 
+
 //Scrive il contenuto dell'heap nel file prova1.txt
 void usr2Handler()
 {
@@ -70,6 +74,7 @@ void usr2Handler()
   printf("Contenuto dell'heap scritto \n");
 }
 
+
 int main()
 {
   //Registra la gestione dei tre segnali
@@ -78,10 +83,10 @@ int main()
   signal(SIGUSR2,usr2Handler);
   
   printf("PID = %d \n",getpid());
+  
   //Aspetta un segnale
   while(true)
   {
   
   }
-  
 }
