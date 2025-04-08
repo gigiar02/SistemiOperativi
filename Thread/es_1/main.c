@@ -2,8 +2,9 @@
   Creato il 07/04/2025 alle ore 16:23
   Si creino n thread che stampano uno per volta "sono un thread".
   Il numero n è fornito in input.
-  La variabile glob viene sommata
+  La variabile glob viene aggiornata nel seguente modo: glob += (id+1) * glob con glob che parte da 1.
 */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
