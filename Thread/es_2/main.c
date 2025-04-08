@@ -15,7 +15,7 @@ int min = INFINITY;
 int max = -500;
 
 
-//Messaggio inviato ad ogni thread contenente la matrice
+//Messaggio standard da inviare ad ogni thread
 struct msg
 {
   int **matrix;
@@ -24,30 +24,33 @@ struct msg
 };
 
 
+//Ricerca il minimo o il massimo sulla riga assegnata
 void findMinMax(void * arg)
 {
   struct msg *m = (struct msg *) arg;
   int id = m->id;
   int n = m->n;
   int **mat = m->matrix; 
-   printf("Sono il thread %d e opero sulla riga %d \n",m->id);
-   //Search on my row
-   for(int i = 0; i < n; i++)
-   {
-      printf("Esamino: %d min: %d max: %d \n",mat[id][i],min,max);
-      if(mat[id][i] > max) {max = mat[id][i];}
-      if(mat[id][i] < min){ min = mat[id][i];}
-      
-      
-   }
-   printf("Sono il thread %d e ho finito il mio lavoro %d \n",id);
+  
+  //printf("ID = %d \n",id);
+  
+  //Search on my row
+  for(int i = 0; i < n; i++)
+  {
+    //printf("Esamino: %d min: %d max: %d \n",mat[id][i],min,max);
+    
+    //Aggiornamento minimo e massimo
+    if(mat[id][i] > max) max = mat[id][i];
+    if(mat[id][i] < min) min = mat[id][i];
+  }
 }
+
 
 //Stampa la matrice passata in input
 void matrixPrint(int **matrix)
 {
   printf("START \n");
-  
+
   for(int i = 0; i < n; i++)
   {
     for(int j = 0; j < n; j++)
@@ -63,8 +66,7 @@ void matrixPrint(int **matrix)
 
 //Popola una matrice n*n di valori
 void matrixFill(int **matrix)
-{
-  
+{ 
   //el[i][j] = i + j + 4
   for(int i = 0; i < n; i++)
   {
@@ -73,12 +75,12 @@ void matrixFill(int **matrix)
       matrix[i][j] = i + j + 4;
     }
   }
-  
 }
+
 
 int main(int argc,char *argv[])
 {
-  struct msg threadMsg;
+  
   //In input deve essere passato il nunero di thread da creare
   if(argc < 2)
   {
@@ -97,19 +99,23 @@ int main(int argc,char *argv[])
     matrix[i] = malloc(n * sizeof(int));
   }
   
+  //Creo l'array di messaggi
+  struct msg threadMsg[n];
+  
   //La matrice viene riempita e stampata
   matrixFill(matrix);
   printf("STAMPO LA MATRICE: \n");
   matrixPrint(matrix);
   
-  threadMsg.matrix = matrix;
-  threadMsg.n = n;
-  
   //Creazione dei thread
   for(int i = 0; i < n; i++)
   {
-    pthread_create(&id[i],NULL,findMinMax,(void *) &threadMsg);
-    threadMsg.id = i;
+    //Creazione del messaggio da inviare ai singoli thread
+    threadMsg[i].matrix = matrix;
+    threadMsg[i].n = n;
+    threadMsg[i].id = i;
+    pthread_create(&id[i],NULL,findMinMax,(void *) &threadMsg[i]);
+    
   }
   
   //Aspetto che i thread abbiano finito
@@ -122,6 +128,6 @@ int main(int argc,char *argv[])
     
   }
   
-  printf("Min = %d e Max = %d \n",min,max);
-  
+  //Stampa del risultato
+  printf("Min = %d  Max = %d \n",min,max);
 }
