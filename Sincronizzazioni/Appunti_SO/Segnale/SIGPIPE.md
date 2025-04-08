@@ -1,2 +1,0 @@
-[[segnale]]
-Termina il ricevente

@@ -1,2 +1,0 @@
-#segnale  
-Dopo la consegna del segnale viene effettuata un'azione di default per la gestione del segnale. Nella maggior parte dei casi il processo viene terminato e viene generato un file contenente l'immagine della memoria del processo (core dump)

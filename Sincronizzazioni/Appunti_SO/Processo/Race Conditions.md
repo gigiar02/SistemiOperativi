@@ -1,2 +1,0 @@
-#processo
-Si verifica quando piu processi cercano di operare con dati condivisi. Il risultato finale dipende dall'ordine in cui i processi sono eseguiti. Inoltre non è possbile predire quale processo vengua eseguito per primo.
