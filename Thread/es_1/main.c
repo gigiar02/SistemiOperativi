@@ -17,7 +17,7 @@ long double glob = 1;
 void func(void * id)
 {
 
-  glob += (int) (id+1) * glob;
+  glob += (int) 2;
   printf("sono thread %d res = %Lf \n",(int) id,glob);
 }
 

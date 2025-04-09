@@ -11,5 +11,6 @@ Indice:
 - [[pipe con nome]]
 - socket (non ancora fatto)
 - [[Thread]]
+- [[Mutex e Variabili di Condizione]]
 - 
 
