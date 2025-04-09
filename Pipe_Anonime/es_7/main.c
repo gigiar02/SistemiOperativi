@@ -26,7 +26,7 @@ void matrixPrint(int **matrix,int n)
   {
     for(int j = 0; j < n; j++)
     {
-      printf(" %d ",matrix[i][j]);
+      printf("%d\t",matrix[i][j]);
     }
     printf("\n");
   }
@@ -42,10 +42,7 @@ int main(int argc,char *argv[])
   
   //Controllo argomenti
   if(argc < 2) err("The program takes in input one argument ");
-  
-  //Creazione pipe
-  
-  
+ 
   //Allocazione della matrice n*n
   n = atoi(argv[1]);
   int fd[(n-1)*2];
@@ -64,6 +61,7 @@ int main(int argc,char *argv[])
   }
   
   //L'utente sceglie i valori della matrice
+  /*
   printf("Popola la matrice \n");
   for(int i = 0; i < n; i++)
   {
@@ -76,7 +74,23 @@ int main(int argc,char *argv[])
       matrix[i][j] = value;
     }
   }
+  */
   
+  //Input senza tastiera
+  int glob = 0;
+  for(int i = 0; i < n; i++)
+  {
+    for(int j = 0; j < n; j++)
+    {
+      int value;
+      printf("\n");
+      glob += 1;
+      //printf("\ninput = %d \n",value);
+      matrix[i][j] = glob;
+    }
+  }
+  
+  printf("\n");
   //Utilizzo di pipe per sommare N righe della matrice
   for(int i = 0; i < n; i++)
   {
@@ -85,15 +99,12 @@ int main(int argc,char *argv[])
     {
       //generazione id
       int id = i * 2;
-      printf("id = %d i = %d 87 \n",id,i);
       
       //Processo interno alla catena
       if(i > 0)
       {
-        
-        //Chiudo descrittore per scrivere
-        close(fd[id-1]);
-        close(fd[id]);
+        int sum_loc;
+        char buff[SIZE];
         
         //Chiusura descrittori precedenti 
         for(int off = i-2; off > 0; off--)
@@ -104,102 +115,83 @@ int main(int argc,char *argv[])
           close(fd[off+1]);
         }
         
-        //Chiusura descrittori successivi
-        for(int succ = i + 1; succ < n; succ++)
-        {
-          int c_id = succ * 2;
-          close(fd[c_id]);
-          close(fd[c_id + 1]);
-        }
-        
-        
-        //Calcolo somma locale
-        int sum_loc;
-        char buff[SIZE];
+        //Lettura della somma ottenuta
         read(fd[id-2],buff,SIZE);
         sum_loc = atoi(buff);
         close(fd[id-2]);
-        printf("somma [%d] = %d \n",i,sum_loc);
-        
+       
+        //Calcolo della somma
         for(int j = 0; j < n; j++)
         {
           sum_loc += matrix[i][j];
         }
-        printf("somma [%d] = %d \n",i,sum_loc);
         
         //Scrittura del risultato locale
         sprintf(buff, "%d", sum_loc);
         write(fd[id + 1],buff,strlen(buff));
         close(fd[id+1]);
-      }
-      //Processo all'inizio della catena
-      else if(i == 0)
+        
+        //Processo all'inizio della catena
+      }else if(i == 0) 
       {
-        printf("id = %d i = %d 135 \n",id,i);
-        //Non mi servirà leggere
-        close(fd[0]);
-        
-        //Chiusura descrittori inutilizzati (1 mi serve per scrivere)
-        for(int succ = 1; succ < n-1; succ++)
-        {
-          int c_id = succ * 2;
-          close(fd[c_id]);
-          close(fd[c_id+1]);
-        }
-        
-        printf("id = %d i = %d 147 \n",id,i);
-        //Calcolo della somma locale
         int sum_loc = 0;
-        printf("somma [%d] = %d \n",i,sum_loc);
+
+        //Calcolo della somma locale
         for(int j = 0; j < n; j++)
         {
           sum_loc += matrix[i][j];
         }
-        printf("somma [%d] = %d \n",i,sum_loc);
+        
+        //Scrivo il risultato
         char buff[SIZE];
         sprintf(buff, "%d", sum_loc);
-        write(fd[1],buff,strlen(buff));
-        close(fd[1]);
+        write(fd[1],buff,sizeof(int));
         
-      }
-    else
-    {
-      break;
-    }
+        //Chiudo il descrittore
+        close(fd[1]);
+      } 
+  }else
+  {
+    //printf("Sono il padre %d e ho finito \n",getpid());
+    break;
   }
-  
-  
-  
-  
 }
+
+
 //Operazioni padre
 if(getpid() == father)
-  {
+{
+    int globalSum = 0;
+    char buff[SIZE];
+    
+    //Chiusura di tutti i descrittori
     for(int i = 0; i < (n-1)*2; i++)
     {
       if(i == (n-1)*2) continue;
       close(fd[i]);
     }
     
+    //Chiusura descrittore inutilizzato
+    int end = (n-1)*2 + 1;
+    close(fd[end]);
+    
     //Attende che i figli abbiano finito
-    sleep(1);
     for(int i = 0; i < n; i++)
     {
       printf("Aspetto che %d abbia finito \n",i);
       wait(NULL);
       printf(" %d ha finito \n",i);
     }
-    
-    //Legge il risultato
-    int globalSum = 0;
-    char buff[SIZE];
+
+    //Lettura del risultato
     read(fd[(n-1)*2],buff,SIZE);
     globalSum = atoi(buff);
     close(fd[(n-1)*2]);
     
+    //Stampa del risultato e della matrice
     printf("Risultato = %d \n",globalSum);
-    
-    //Stampa della matrice
     matrixPrint(matrix,n);
-  }
+}
+  
+  return 0;
 }
