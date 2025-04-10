@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "FileSystem/mkfifo().md",
-                "mode": "source",
+                "file": "Thread/Terminazione di thread.md",
+                "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "mkfifo()"
+              "title": "Terminazione di thread"
             }
           }
         ]
@@ -165,20 +165,22 @@
   },
   "active": "fa934d075184b8b0",
   "lastOpenFiles": [
-    "img/Pasted image 20250408173515.png",
-    "Pasted image 20250409175227.png",
-    "Semafori.md",
+    "Thread/Pthread.md",
+    "Thread/Thread.md",
     "README.md",
-    "Pasted image 20250409175220.png",
-    "Pasted image 20250409175208.png",
+    "Pasted image 20250409174700.png",
+    "img/Pasted image 20250409175227.png",
+    "FileSystem/mkfifo().md",
+    "img/Pasted image 20250408173515.png",
+    "Semafori.md",
+    "img/Pasted image 20250409175220.png",
+    "img/Pasted image 20250409175208.png",
     "Semafori con nome.md",
-    "Pasted image 20250409175133.png",
-    "Pasted image 20250409175123.png",
-    "Pasted image 20250409175055.png",
-    "Pasted image 20250409175046.png",
-    "Pasted image 20250409175034.png",
-    "Pasted image 20250409175019.png",
-    "Pasted image 20250409174959.png",
+    "img/Pasted image 20250409175133.png",
+    "img/Pasted image 20250409175123.png",
+    "img/Pasted image 20250409175055.png",
+    "img/Pasted image 20250409175046.png",
+    "img/Pasted image 20250409175034.png",
     "sem_post e sem_getvalue.md",
     "sem_unlinlk.md",
     "Semafori basati su memoria.md",
@@ -199,8 +201,6 @@
     "I-O/file speciali a blocco.md",
     "Shell/Analisi riga di comando.md",
     "Shell/shell.md",
-    "Segnale/SIGINT.md",
-    "Segnale/sigaction().md",
     "Thread",
     "Segnale",
     "Processo",
