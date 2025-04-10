@@ -1,0 +1,1 @@
+Semaforo che può assumere solo i valori di 0 (bloccato) e 1(sbloccato)

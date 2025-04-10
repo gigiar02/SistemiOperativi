@@ -1,6 +1,9 @@
 /*
   Creato il 04/09/2025
   La traccia è nella directory
+  
+  NOTE:
+  Il vettore fd è un vettore di descrittori pipe del tipo vector[4] = {0,1,0,1}.(gli 0 e 1 non sono i valori dell'array. Infatti lo 0 indica che si può leggere da quel descrittore e 1 che si può scrivere.) A riga 55 viene inizializzato
 */
 #include <stdio.h>
 #include <stdlib.h>
@@ -43,8 +46,9 @@ int main(int argc,char *argv[])
   //Controllo argomenti
   if(argc < 2) err("The program takes in input one argument ");
  
-  //Allocazione della matrice n*n
   n = atoi(argv[1]);
+  
+  //l' array fd avrà n-1 elementi e ogni elemento occupa uno spazio di dimensione 2. 
   int fd[(n-1)*2];
   
   //Inizializzazione pipe
@@ -54,6 +58,7 @@ int main(int argc,char *argv[])
     printf("v: %d v: %d \n",fd[i],fd[i+1]);
   }
   
+  //Allocazione matrice
   matrix = malloc( n * sizeof(int *));
   for(int i = 0; i < n; i++)
   {

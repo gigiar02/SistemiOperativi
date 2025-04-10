@@ -1,0 +1,1 @@
+Generalizza il concetto di semaforo binario. In questo caso il semaforo viene inizializzato ad un valore compreso tra 0 ed un certo limite.

@@ -12,5 +12,5 @@ Indice:
 - socket (non ancora fatto)
 - [[Thread]]
 - [[Mutex e Variabili di Condizione]]
-- 
+- [[Semafori ]]
 
