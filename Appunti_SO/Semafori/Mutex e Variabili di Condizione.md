@@ -2,7 +2,7 @@ Quando i thread si trovano a dover accedere alla stessa variabile per evitare di
 Vi sono due primitive per la sincronizzazione dei thread nei processi:
 - [[mutex]]
 - [[variabili di condizione]]
-- [[semafori]]
+- [[Semafori]]
 
 Sincronizzazioni implementate:
 - [[Produttore Consumatore]]
