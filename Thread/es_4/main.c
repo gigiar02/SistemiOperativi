@@ -41,6 +41,7 @@ void directoryRead(void * arg)
     struct stat st;
     
     //Creazione del percorso
+    pathName[0] = "\0";
     strcat(pathName,paths[i+1]);
     strcat(pathName,"/");
     strcat(pathName,file->d_name);
