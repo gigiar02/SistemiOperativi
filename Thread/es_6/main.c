@@ -1,3 +1,7 @@
+/*
+  Creato il 15/04/2025 alle ore 11:44
+  La traccia è nella directory
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -11,8 +15,6 @@
 #define wait sem_wait
 #define signal sem_post
 #define row 4500
-
-
 int n;
 int fd;
 
@@ -61,10 +63,12 @@ void reader(void * arg)
   {
     //Aspetta di poter accedere al file
     wait(full);
+    
     //Apertura file
     fd = open("out.txt",O_RDONLY);
     printf("descriptor = %d \n",fd);
     printf("Sto aspettando di poter leggere..\n");
+    
     //Leggi da file
     char buff[row];
     ssize_t letto = read(fd,buff,row);
@@ -80,6 +84,8 @@ void reader(void * arg)
     signal(empty);
   }
 }
+
+
 int main(int argc, char **argv)
 {
   //Creazione semafori
