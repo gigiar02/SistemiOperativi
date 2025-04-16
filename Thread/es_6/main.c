@@ -55,8 +55,9 @@ void writer(void * arg)
 void reader(void * arg)
 {
   //Apertura semafori
-  sem_t *full = sem_open("full",O_EXCL);
-  sem_t *empty =  sem_open("empty",O_EXCL);
+  sem_t *full =  sem_open("full",O_EXCL);
+  sem_t *empty = sem_open("empty",O_EXCL);
+  sem_t *end =   sem_open("end",O_EXCL);
   
   //Numeri da 1 a N
   for(int j = 1; j <= n; j++)
@@ -83,18 +84,35 @@ void reader(void * arg)
     
     signal(empty);
   }
+  
+  //Sblocco il thread che sta aspettando per poter stampara il messaggio di fine
+  signal(end);
+}
+
+
+//Aspetta la lettura di tutti gli n numeri per stampare un messaggio
+void endPrint(void * arg)
+{
+  sem_t *end = sem_open("end",O_EXCL);
+  
+  //Aspetta di poter stampare
+  wait(end);
+  int tid = gettid();
+  printf("Finito con tid = %d \n",tid);
 }
 
 
 int main(int argc, char **argv)
 {
-  //Creazione semafori
+  //I semafori posix sono salvati in memoria fino al reboot, per precauzione è necessario fare l' unlink in modo tale da crearli di sicuro.
   sem_unlink("full");
   sem_unlink("empty");
-  sem_t *full = sem_open("full",O_CREAT,0666,0);
-  sem_t *empty =  sem_open("empty",O_CREAT,0666,1);
-  close(full);
-  close(empty);
+  sem_unlink("end");
+  
+  //Creazione semafori
+  sem_t *full  = sem_open("full",O_CREAT,0666,0);
+  sem_t *empty = sem_open("empty",O_CREAT,0666,1);
+  sem_t *end   = sem_open("end",O_CREAT,0666,0);
   
   //Controllo argomento passato in input
   if(argc != 2) exit(2);
@@ -102,12 +120,13 @@ int main(int argc, char **argv)
   if(n < 13 || n > 37) exit(3);
   
   //Creazione dei thread
-  pthread_t tid[2];
-  pthread_create(&tid[0],NULL,&writer,(void *) NULL);
-  pthread_create(&tid[1],NULL,&reader,(void *) NULL);
+  pthread_t tid[3];
+  pthread_create(&tid[0],NULL,&writer,  (void *) NULL);
+  pthread_create(&tid[1],NULL,&reader,  (void *) NULL);
+  pthread_create(&tid[2],NULL,&endPrint,(void *) tid[2]);
   
   //Aspetto la terminazione dei thread
-  for(int i = 0; i < 2; i++)
+  for(int i = 0; i < 3; i++)
   {
     pthread_join(tid[i],NULL);
   }
