@@ -3,6 +3,7 @@
   La traccia è nella directory
   
   Codice disastroso post pasquetta con 0 voglia
+  funzionante ma da sistemare
 */
 #include <stdio.h>
 #include <stdlib.h>
