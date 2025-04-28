@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "preview",
+                "file": "I-O/socket.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "socket"
             }
           }
         ]
@@ -165,8 +165,16 @@
   },
   "active": "fa934d075184b8b0",
   "lastOpenFiles": [
-    "Processo/pipe con nome.md",
+    "connection oriented.md",
+    "I-O/socket.md",
+    "TCP.md",
+    "connectionless oritented model.md",
+    "Pasted image 20250428124647.png",
+    "UDP.md",
+    "client server.md",
     "README.md",
+    "Semafori/Mutex e Variabili di Condizione.md",
+    "Processo/pipe con nome.md",
     "Segnale/pipe anonime.md",
     "Segnale/pipe().md",
     "Shell/shell.md",
@@ -184,13 +192,6 @@
     "I-O/chdir.md",
     "I-O/opendir.md",
     "I-O/mkdir.md",
-    "I-O/stat.md",
-    "I-O/struct stat.md",
-    "I-O/symlink.md",
-    "I-O/unlink.md",
-    "I-O/link.md",
-    "I-O/chown.md",
-    "I-O/chmod.md",
     "img/Pasted image 20250411142450.png",
     "img/Pasted image 20250411142306.png",
     "img/Pasted image 20250411135915.png",
@@ -200,7 +201,6 @@
     "img/Pasted image 20250411142400.png",
     "img/Pasted image 20250411142049.png",
     "img/Pasted image 20250411142038.png",
-    "img/Pasted image 20250411141358.png",
     "TODO",
     "Semafori",
     "Thread",

@@ -1,0 +1,2 @@
+In questo modello il server rimane sempre in ascolto e quando riceve una richiesta per un particolare servizio da uno o piu client si occupa di soddifarlo.
+Il server ha un ip fisso, il client invece può avere indirizzi ip dinamici e non comunica direttamente con gli altri client.

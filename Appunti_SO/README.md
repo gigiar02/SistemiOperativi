@@ -9,7 +9,7 @@ Indice:
 - [[segnale]]
 - [[pipe anonime]]
 - [[pipe con nome]]
-- socket (non ancora fatto)
+- [[socket]]
 - [[Thread]]
 - [[Mutex e Variabili di Condizione]]
 - [[Semafori ]]

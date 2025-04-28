@@ -1,0 +1,1 @@
+Tipologia di comunicazione che non utilizza la connessione. Sono implementati dalle socket a datagrammi che trasferiscono messaggi di dimensione variabile senza garantire ordine o arrivo dei pacchetti. Sono supportate nel dominio Internet dal protocollo [[UDP]]
