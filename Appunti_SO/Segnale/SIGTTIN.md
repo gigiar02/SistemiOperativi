@@ -1,0 +1,1 @@
+Il processo ha cercato di leggere dal terminale di controllo senza fare parte del gruppo di processi di controllo del terminale.
