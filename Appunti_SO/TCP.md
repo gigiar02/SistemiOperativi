@@ -9,3 +9,7 @@ Il client deve contattare il server che a sua volta deve aver predisposto una so
 Il client crea una socket TCP e specifica l'indirizzo IP e il numero di porta del processo server. Inoltre questo tipo di protocollo viene detto di tipo "handshake a tre vie" poiché si va a stabilire una connessione successivamente con il server(invio di byte si dal client che dal sever).
 ![[Pasted image 20250428124647.png]]
 
+## Client
+- Il client crea una socket attraverso [[socket()]]
+- Invoca [[connect()]] per stabilire una connessione con il server utilizzando la socket del server come inidirizzo
+- Una volta creata, la socket può essere utilizzata come descrittore di file a basso livello fornendo una comunicazione dati sia in lettura che scrittura.

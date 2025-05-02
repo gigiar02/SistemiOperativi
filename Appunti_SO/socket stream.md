@@ -1,0 +1,2 @@
+Forniscono una connessione che è un flusso di byte a due vie affidabile e sequenziato. è garantito che i dati non siano persi, duplicati o riordinati senza un'inidicazione dell' occorrenza di un errore.
+I messaggi piu grandi sono frammentati, trasmessi e riassemblati. Le socket stream, specificate dal tipo SOCK_STREAM sono implementate nel [[dominio]] AF_INET dalle connessioni TCP/IP.
