@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "I-O/symlink.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "symlink"
             }
           }
         ]
@@ -165,9 +165,10 @@
   },
   "active": "fa934d075184b8b0",
   "lastOpenFiles": [
+    "I-O/File I-O.md",
+    "README.md",
     "Semafori/Mutex e Variabili di Condizione.md",
     "img/variabili di condizione.md",
-    "README.md",
     "Thread/Thread.md",
     "Processo/processo.md",
     "Segnale/Famiglia Exec.md",
@@ -176,7 +177,6 @@
     "Processo/Terminazione di un processo.md",
     "I-O/File System.md",
     "I-O/I-node.md",
-    "I-O/File I-O.md",
     "I-O/symlink.md",
     "I-O/chdir.md",
     "I-O/link.md",
