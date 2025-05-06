@@ -41,6 +41,7 @@ int main(int argc,char **argv)
     char *buff = file->d_name;
     strcat(buff," ");
     write(fd,buff,strlen(buff));
+    //write(fd,hardLinks,sizeof(int));
     write(fd,nlink,strlen(nlink));
     write(fd,"\n",strlen("\n"));
   }
