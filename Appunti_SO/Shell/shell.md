@@ -1,5 +1,6 @@
 #shell
-La shell è un programma speciale che permette di utilizzare i servizi offerti dal kernel , fungendo da interfaccia per l'utente. La shell risiede su disco e viene caricata una volta effettuato il log in nel sistema. Quando si digita un comando la shell:
+[[approfondimenti shell]]
+La shell è un programma speciale che permette di utilizzare i servizi offerti dal kernel , fungendo da interfaccia per l'utente. Il kernel viene caricato in memoria durante la fase di boot e si occupa della gestione del sistema. La shell risiede su disco e viene caricata una volta effettuato il login nel sistema. Quando si digita un comando la shell:
 - Analizza la riga di comando: [[Analisi riga di comando]]
 - Si occupa di gestire i simboli di wildcard, redirezione, le pipe ed il controllo dei job
 - Cerca il comando e se lo trova lo esegue
@@ -11,7 +12,7 @@ Nei principali sistemi unix esistono tre shell predominanti:
  - [[shell Bourne]]
  - [[shell C]]
  - [[shell Korn]]
- Le differenze si notano soprattuo nell'utilizzio dei diversi linguaggi di scripting e nell'efficienza.
+ Le differenze si notano soprattuo nell'utilizzo dei diversi linguaggi di scripting e nell'efficienza.
  La shell GNU Bourne Again o Bash è la shell di default di Linux e risulta essere un'estensione della shell Bourne.
  Per verificare quali shell sono disponibili nella versione linux che si usa, basta esaminare il contenuto del file /etc/shells.
 
@@ -20,7 +21,7 @@ Nei principali sistemi unix esistono tre shell predominanti:
 
  Quando si  avvia il sistema operativo, il primo processo invocato è init che ha pid 1. Init inizializza il sistema e avvia gli altri processi che aprono le linee del terminale e impostano lo stdin, stdou e sterr.
 A queso punto appare il prompt dei comandi che richiede di inserire nome utente e password. Il programma /bin/login cerca nel file /etc/passwd se il nome corrisponde e in caso positivo passa la password inserita ad un pogramma di crittografia che successivamente la confronta con quella assegnata all'utente. Se il tutto va a buon fine viene impostato l'ambiente iniziale.
-Alle variabili Home,Shell,User e LogName sono assegnati i valori trovati nel file etc/passwd. La variabile PATH è impostata alle directory con le utility utilizzate piu di frequente. Infine viene avviato il programma presente nell'ultimar riga del file passwd, ossia la shell. La shell controlla la directory home ed esegue i file se ci sono specifici della shell.
+	Alle variabili HOME,SHELL, USER e LOGNAME sono assegnati i valori trovati nel file etc/passwd. La variabile PATH è impostata alle directory con le utility utilizzate piu di frequente. Infine viene avviato il programma presente nell'ultimar riga del file passwd, ossia la shell. La shell controlla la directory home ed esegue i file se ci sono specifici della shell.
 
 
 Una volta effettuato il login, la shell ha una sua identità formata dal:
