@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Shell/shell.md",
+                "file": "I-O/symlink.md",
                 "mode": "preview",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "shell"
+              "title": "symlink"
             }
           }
         ]
@@ -61,7 +61,7 @@
                 "sortOrder": "alphabetical"
               },
               "icon": "lucide-search",
-              "title": "Ricerca"
+              "title": "Search"
             }
           },
           {
@@ -165,19 +165,29 @@
   },
   "active": "fa934d075184b8b0",
   "lastOpenFiles": [
+    "I-O/File I-O.md",
+    "I-O/stat.md",
+    "README.md",
+    "img/variabili di condizione.md",
+    "Semafori/Mutex e Variabili di Condizione.md",
+    "Thread/Pthread.md",
+    "Thread/Thread.md",
+    "Segnale/IPC.md",
+    "I-O/FIFO.md",
+    "Segnale/pipe anonime.md",
+    "I-O/symlink.md",
+    "I-O/sticky bit.md",
+    "Processo/processo.md",
+    "Shell/shell.md",
     "approfondimenti shell.md",
     "Pasted image 20250606092839.png",
     "Pasted image 20250606092526.png",
-    "Shell/shell.md",
     "Shell/Analisi riga di comando.md",
-    "README.md",
     "Built-in.md",
     "Pasted image 20250605111158.png",
     "img/Produttore Consumatore.md",
     "FileSystem/mkfifo().md",
-    "Processo/processo.md",
     "I-O/File System.md",
-    "I-O/File I-O.md",
     "Pasted image 20250605110859.png",
     "Pasted image 20250605110832.png",
     "Shell/shell C.md",
@@ -187,17 +197,8 @@
     "Socket/connectionless oritented model.md",
     "Socket/connection oriented.md",
     "Socket",
-    "Semafori/Semafori System V.md",
     "img/Pasted image 20250429162401.png",
     "img/Pasted image 20250429162422.png",
-    "Semafori/Semafori.md",
-    "I-O/symlink.md",
-    "Semafori/Mutex e Variabili di Condizione.md",
-    "img/variabili di condizione.md",
-    "Thread/Thread.md",
-    "Segnale/Famiglia Exec.md",
-    "Processo/Immagine del processo.md",
-    "Processo/Programma.md",
     "img/Pasted image 20250429162354.png",
     "img/Pasted image 20250429162347.png",
     "img/Pasted image 20250429162338.png",
